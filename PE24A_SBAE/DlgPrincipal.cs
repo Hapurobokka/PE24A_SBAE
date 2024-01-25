@@ -27,7 +27,7 @@ namespace PE24A_SBAE
             string Mensaje = "";
 
             if (CbxSaludar.Checked)
-                Mensaje = "Buenas tardes. ";
+                Mensaje = "Buenas días. ";
 
             MessageBox.Show("Hola. " + Mensaje + "Mi nombre es Cosme Fulanito.");
         }
