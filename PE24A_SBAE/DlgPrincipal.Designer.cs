@@ -30,14 +30,16 @@
         {
             this.BtnHolaMundo = new System.Windows.Forms.Button();
             this.CbxSaludar = new System.Windows.Forms.CheckBox();
+            this.BtnMesaPracticas1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnHolaMundo
             // 
             this.BtnHolaMundo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHolaMundo.Location = new System.Drawing.Point(33, 27);
+            this.BtnHolaMundo.Location = new System.Drawing.Point(25, 22);
+            this.BtnHolaMundo.Margin = new System.Windows.Forms.Padding(2);
             this.BtnHolaMundo.Name = "BtnHolaMundo";
-            this.BtnHolaMundo.Size = new System.Drawing.Size(247, 106);
+            this.BtnHolaMundo.Size = new System.Drawing.Size(185, 86);
             this.BtnHolaMundo.TabIndex = 0;
             this.BtnHolaMundo.Text = "Hola Mundo";
             this.BtnHolaMundo.UseVisualStyleBackColor = true;
@@ -46,22 +48,36 @@
             // CbxSaludar
             // 
             this.CbxSaludar.AutoSize = true;
-            this.CbxSaludar.Location = new System.Drawing.Point(42, 150);
+            this.CbxSaludar.Location = new System.Drawing.Point(32, 122);
+            this.CbxSaludar.Margin = new System.Windows.Forms.Padding(2);
             this.CbxSaludar.Name = "CbxSaludar";
-            this.CbxSaludar.Size = new System.Drawing.Size(137, 20);
+            this.CbxSaludar.Size = new System.Drawing.Size(109, 17);
             this.CbxSaludar.TabIndex = 1;
             this.CbxSaludar.Text = "Saludos terricolas";
             this.CbxSaludar.UseVisualStyleBackColor = true;
             this.CbxSaludar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // BtnMesaPracticas1
+            // 
+            this.BtnMesaPracticas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMesaPracticas1.Location = new System.Drawing.Point(226, 22);
+            this.BtnMesaPracticas1.Name = "BtnMesaPracticas1";
+            this.BtnMesaPracticas1.Size = new System.Drawing.Size(155, 86);
+            this.BtnMesaPracticas1.TabIndex = 2;
+            this.BtnMesaPracticas1.Text = "Mesa de Prácticas 1";
+            this.BtnMesaPracticas1.UseVisualStyleBackColor = true;
+            this.BtnMesaPracticas1.Click += new System.EventHandler(this.BtnMesaPracticas1_Click);
+            // 
             // DlgPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 518);
+            this.ClientSize = new System.Drawing.Size(736, 421);
+            this.Controls.Add(this.BtnMesaPracticas1);
             this.Controls.Add(this.CbxSaludar);
             this.Controls.Add(this.BtnHolaMundo);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DlgPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Programación Estructurada 24A";
@@ -75,6 +91,7 @@
 
         private System.Windows.Forms.Button BtnHolaMundo;
         private System.Windows.Forms.CheckBox CbxSaludar;
+        private System.Windows.Forms.Button BtnMesaPracticas1;
     }
 }
 
