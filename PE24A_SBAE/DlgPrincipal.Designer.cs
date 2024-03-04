@@ -31,6 +31,7 @@
             this.BtnHolaMundo = new System.Windows.Forms.Button();
             this.CbxSaludar = new System.Windows.Forms.CheckBox();
             this.BtnMesaPracticas1 = new System.Windows.Forms.Button();
+            this.BtnMesaPracticas2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnHolaMundo
@@ -68,11 +69,23 @@
             this.BtnMesaPracticas1.UseVisualStyleBackColor = true;
             this.BtnMesaPracticas1.Click += new System.EventHandler(this.BtnMesaPracticas1_Click);
             // 
+            // BtnMesaPracticas2
+            // 
+            this.BtnMesaPracticas2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMesaPracticas2.Location = new System.Drawing.Point(397, 22);
+            this.BtnMesaPracticas2.Name = "BtnMesaPracticas2";
+            this.BtnMesaPracticas2.Size = new System.Drawing.Size(155, 86);
+            this.BtnMesaPracticas2.TabIndex = 3;
+            this.BtnMesaPracticas2.Text = "Mesa de Prácticas 2";
+            this.BtnMesaPracticas2.UseVisualStyleBackColor = true;
+            this.BtnMesaPracticas2.Click += new System.EventHandler(this.BtnMesaPracticas2_Click);
+            // 
             // DlgPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 421);
+            this.Controls.Add(this.BtnMesaPracticas2);
             this.Controls.Add(this.BtnMesaPracticas1);
             this.Controls.Add(this.CbxSaludar);
             this.Controls.Add(this.BtnHolaMundo);
@@ -92,6 +105,7 @@
         private System.Windows.Forms.Button BtnHolaMundo;
         private System.Windows.Forms.CheckBox CbxSaludar;
         private System.Windows.Forms.Button BtnMesaPracticas1;
+        private System.Windows.Forms.Button BtnMesaPracticas2;
     }
 }
 

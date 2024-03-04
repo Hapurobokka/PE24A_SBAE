@@ -59,5 +59,18 @@ namespace PE24A_SBAE
             DlgMesaPracticas1 = new DlgMesaPracticas1();
             DlgMesaPracticas1.Show();
         }
+
+
+    // ------------------------------------------------------------------------
+    // Botón para activar Mesa de Prácticas 2
+    //
+    // ------------------------------------------------------------------------
+        private void BtnMesaPracticas2_Click(object sender, EventArgs e)
+        {
+            DlgMesaPracticas2 DlgMesaPracticas2;
+                
+            DlgMesaPracticas2 = new DlgMesaPracticas2();
+            DlgMesaPracticas2.Show();
+        }
     }
 }

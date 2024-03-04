@@ -52,6 +52,12 @@
     <Compile Include="DlgMesaPracticas1.Designer.cs">
       <DependentUpon>DlgMesaPracticas1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgMesaPracticas2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMesaPracticas2.Designer.cs">
+      <DependentUpon>DlgMesaPracticas2.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DlgMesaPracticas1.resx">
       <DependentUpon>DlgMesaPracticas1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgMesaPracticas2.resx">
+      <DependentUpon>DlgMesaPracticas2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgPrincipal.resx">
       <DependentUpon>DlgPrincipal.cs</DependentUpon>
