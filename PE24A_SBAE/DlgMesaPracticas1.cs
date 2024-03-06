@@ -17,10 +17,21 @@ namespace PE24A_SBAE
     public partial class DlgMesaPracticas1 : Form
     {
         DataGridView DgvTabla2;
+        System.Timers.Timer Timer;
 
         public DlgMesaPracticas1()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
+            Timer = new System.Timers.Timer(3000);
+            Timer.Elapsed += new System.Timers.ElapsedEventHandler(EventoTimer);
+            Timer.AutoReset = true;
+        }
+
+        public void EventoTimer(object source, System.Timers.ElapsedEventArgs e)
+        {
+            BtnP2Calcular_Click(null, null);
+            BtnP2Diagonal_Click(null, null);
         }
 
         private void PnlSuperior_Paint(object sender, PaintEventArgs e)
@@ -210,7 +221,8 @@ namespace PE24A_SBAE
                             RedAmount++;
                         }
                     }
-                } 
+                }
+
             }
 
             // Muestra los resultados y los colorea
@@ -284,6 +296,19 @@ namespace PE24A_SBAE
         {
             DgvTabla1.Visible = false;
             DgvTabla1.SendToBack();
+        }
+
+        private void BtnP2Temporizador_Click(object sender, EventArgs e)
+        {
+            Timer.Enabled = !Timer.Enabled;
+            if (Timer.Enabled)
+            {
+                BtnP2Temporizador.BackColor = Color.Green;
+            }
+            else
+            {
+                BtnP2Temporizador.BackColor = Color.Red;
+            }
         }
     } 
 }

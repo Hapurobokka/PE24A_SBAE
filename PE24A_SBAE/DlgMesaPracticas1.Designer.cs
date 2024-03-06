@@ -59,6 +59,7 @@
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColApellidoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColApellidoM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnP2Temporizador = new System.Windows.Forms.Button();
             this.PnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogotipo)).BeginInit();
             this.PnlIzquierdo.SuspendLayout();
@@ -92,6 +93,7 @@
             // PnlIzquierdo
             // 
             this.PnlIzquierdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(36)))), ((int)(((byte)(150)))));
+            this.PnlIzquierdo.Controls.Add(this.BtnP2Temporizador);
             this.PnlIzquierdo.Controls.Add(this.BtnP2Diagonal);
             this.PnlIzquierdo.Controls.Add(this.BtnP2Calcular);
             this.PnlIzquierdo.Controls.Add(this.BtnP2Activar);
@@ -365,6 +367,16 @@
             this.ColApellidoM.Name = "ColApellidoM";
             this.ColApellidoM.Width = 115;
             // 
+            // BtnP2Temporizador
+            // 
+            this.BtnP2Temporizador.Location = new System.Drawing.Point(21, 294);
+            this.BtnP2Temporizador.Name = "BtnP2Temporizador";
+            this.BtnP2Temporizador.Size = new System.Drawing.Size(112, 25);
+            this.BtnP2Temporizador.TabIndex = 8;
+            this.BtnP2Temporizador.Text = "P2 Temporizador";
+            this.BtnP2Temporizador.UseVisualStyleBackColor = true;
+            this.BtnP2Temporizador.Click += new System.EventHandler(this.BtnP2Temporizador_Click);
+            // 
             // DlgMesaPracticas1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,5 +434,6 @@
         private System.Windows.Forms.TextBox TbxSalida5;
         private System.Windows.Forms.Label LblSalida6;
         private System.Windows.Forms.TextBox TbxSalida6;
+        private System.Windows.Forms.Button BtnP2Temporizador;
     }
 }

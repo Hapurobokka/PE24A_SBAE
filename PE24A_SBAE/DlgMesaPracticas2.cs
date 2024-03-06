@@ -29,7 +29,7 @@ namespace PE24A_SBAE
             // Inicialización de la hora y la fecha actual
             //
             // ------------------------------------------------------------------------ 
-            LblHoraActual.Text = DateTime.Now.ToString("HH:mm");
+            LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
             LblFechaActual.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             
             // ------------------------------------------------------------------------ 
@@ -51,7 +51,7 @@ namespace PE24A_SBAE
         // --------------------------------------------------------------------
         // Cambiar la posición de los componentes al cambiar el tamaño de la
         // ventana
-        //
+        // SBAE
         // --------------------------------------------------------------------
         private void DlgMesaPracticas2_Resize(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace PE24A_SBAE
             // haremos la misma operación que para el eje X, solo cambiando
             // el centro desde el cual realizamos la operación.
             // --------------------------------------------------------------------
-            int YLblHoraActual = WindowCenter[1] - LblHoraActual.Width / 2;
+            int YLblHoraActual = WindowCenter[1] + 60 - LblHoraActual.Width / 2;
             // Sumamos 80, solo para que quede exactamente abajo de la hora.
             int YLblFechaActual = WindowCenter[1] + 80 - LblFechaActual.Width / 2;
 
@@ -134,7 +134,7 @@ namespace PE24A_SBAE
         // --------------------------------------------------------------------
         private void TmrCambioHora_tick(object sender, EventArgs e)
         {
-            LblHoraActual.Text = DateTime.Now.ToString("HH:mm");
+            LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
             LblFechaActual.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
