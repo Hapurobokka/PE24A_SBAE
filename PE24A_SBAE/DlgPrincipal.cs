@@ -87,6 +87,10 @@ namespace PE24A_SBAE
             PbxPreview.BackgroundImage = System.Drawing.Image.FromFile(imageFile);
         }
 
+        // ------------------------------------------------------------------------
+        //  Establece un timer que se encargara de cambiar el color del fondo de 
+        //  la ventana.
+        // ------------------------------------------------------------------------
         private void EstablishTimer()
         {
             count = 0;
@@ -97,6 +101,10 @@ namespace PE24A_SBAE
             timer.Enabled = true;
         }
 
+        // ------------------------------------------------------------------------
+        //  Detiene el timer, libera los recursos que usaba y devuelve el color de 
+        //  la ventana a la normalidad.
+        // ------------------------------------------------------------------------
         private void ResetTimer()
         {
             if (timer != null)
@@ -119,6 +127,10 @@ namespace PE24A_SBAE
             TbxPrueba.Text = " ";
         }
 
+
+        // ------------------------------------------------------------------------
+        // Cambia de manera asincrona el color de la ventana
+        // ------------------------------------------------------------------------
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             if (count < 10)
