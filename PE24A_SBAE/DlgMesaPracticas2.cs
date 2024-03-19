@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace PE24A_SBAE
     // ------------------------------------------------------------------------ 
     public partial class DlgMesaPracticas2 : Form
     {
-    // ------------------------------------------------------------------------ 
-    // Constructor
-    //
-    // ------------------------------------------------------------------------ 
+        int NumRectangles = 0;
+        // ------------------------------------------------------------------------ 
+        // Constructor
+        //
+        // ------------------------------------------------------------------------ 
         public DlgMesaPracticas2()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace PE24A_SBAE
             // Inicialización de la hora y la fecha actual
             //
             // ------------------------------------------------------------------------ 
+            PnlLienzo.Visible = false;
             LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
             LblFechaActual.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             
@@ -37,6 +40,7 @@ namespace PE24A_SBAE
             //
             // ------------------------------------------------------------------------ 
             DlgMesaPracticas2_Resize(null, null);
+
         }
 
         private void DlgMesaPracticas2_Load(object sender, EventArgs e)
@@ -47,7 +51,7 @@ namespace PE24A_SBAE
             // ------------------------------------------------------------------------ 
             TmrCambioHora.Enabled = true;
         }
-        
+
         // --------------------------------------------------------------------
         // Cambiar la posición de los componentes al cambiar el tamaño de la
         // ventana
@@ -59,7 +63,7 @@ namespace PE24A_SBAE
             // Obtenemos el punto medio de la resolución actual de la pantalla,
             // tanto del largo como del ancho
             // --------------------------------------------------------------------
-            int[] WindowCenter = {this.Width/2, this.Height/2};
+            int[] WindowCenter = { this.Width / 2, this.Height / 2 };
 
             // --------------------------------------------------------------------
             // Obtenemos el valor necesario para centrar el componente en el eje X
@@ -96,9 +100,9 @@ namespace PE24A_SBAE
             // haremos la misma operación que para el eje X, solo cambiando
             // el centro desde el cual realizamos la operación.
             // --------------------------------------------------------------------
-            int YLblHoraActual = WindowCenter[1] + 60 - LblHoraActual.Width / 2;
+            int YLblHoraActual = WindowCenter[1] + 80 - LblHoraActual.Width / 2;
             // Sumamos 80, solo para que quede exactamente abajo de la hora.
-            int YLblFechaActual = WindowCenter[1] + 80 - LblFechaActual.Width / 2;
+            int YLblFechaActual = WindowCenter[1] + 100 - LblFechaActual.Width / 2;
 
             // --------------------------------------------------------------------
             // Para el resto es bastante simple. Para los componentes inferiores
@@ -123,9 +127,13 @@ namespace PE24A_SBAE
 
             LnlIzquierda.Location = new System.Drawing.Point(XLnlIzquierda, YLnlIzquierda);
             PbxIzquierda.Location = new System.Drawing.Point(XPbxIzquierda, YPbxIzquierda);
-            
+
             LnlDerecha.Location = new System.Drawing.Point(XLnlDerecha, YLnlDerecha);
             PbxDerecha.Location = new System.Drawing.Point(XPbxDerecha, YPbxDerecha);
+
+            BtnP2Lienzo.Location = new System.Drawing.Point(WindowCenter[0] - 9 - BtnP2Lienzo.Width / 2, 40);
+            BtnP2Limpiar.Location = new System.Drawing.Point(WindowCenter[0] - 9 - BtnP2Limpiar.Width / 2, 70);
+
         }
 
         // --------------------------------------------------------------------
@@ -146,6 +154,63 @@ namespace PE24A_SBAE
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void PbxIzquierda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LnlIzquierda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        // --------------------------------------------------------------------
+        // Activa la practica 2
+        // --------------------------------------------------------------------
+        private void BtnP2Lienzo_Click(object sender, EventArgs e)
+        {
+            PnlLienzo.Visible = !PnlLienzo.Visible;
+            NumRectangles = 0;
+            LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
+        }
+
+        // --------------------------------------------------------------------
+        // Al moverse sobre el lienzo
+        // --------------------------------------------------------------------
+        private void PnlLienzo_MouseMove(object sender, MouseEventArgs e)
+        {
+            LnlDerecha.Text = $"X = {e.X}, Y = {e.Y}";
+            DrawRectangle(e.X, e.Y);
+        }
+
+        // --------------------------------------------------------------------
+        // Dibuja un rectangujo en la coordenada x, y.
+        // --------------------------------------------------------------------
+        private void DrawRectangle(int X, int Y)
+        {
+            Random rnd = new Random();
+            Color Color = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
+            Pen Pluma = new Pen(Color, rnd.Next(1, 100));
+            int x = X;
+            int y = Y;
+            int Ancho = 10;
+            int Alto = 10;
+            Graphics Graficos = PnlLienzo.CreateGraphics();
+            Graficos.DrawRectangle(Pluma, x, y, Ancho, Alto);
+            //Graficos.DrawEllipse(Pluma, x, y, Ancho, Alto);
+            //Graficos.DrawLine(Pluma, x, y, Ancho, Alto);
+            NumRectangles++;
+            LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
+        }
+
+        private void BtnP2Limpiar_Click(object sender, EventArgs e)
+        {
+            Graphics Graficos = PnlLienzo.CreateGraphics();
+            Graficos.Clear(Color.White);
+            NumRectangles = 0;
+            LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
         }
     }
 }
