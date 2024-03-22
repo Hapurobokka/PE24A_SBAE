@@ -39,6 +39,7 @@
             this.PbxPeces = new System.Windows.Forms.PictureBox();
             this.TbxPrueba = new System.Windows.Forms.RichTextBox();
             this.PbxPreview = new System.Windows.Forms.PictureBox();
+            this.PnlPreview = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PbxPeces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxPreview)).BeginInit();
             this.SuspendLayout();
@@ -165,6 +166,15 @@
             this.PbxPreview.TabStop = false;
             this.PbxPreview.Visible = false;
             // 
+            // PnlPreview
+            // 
+            this.PnlPreview.BackColor = System.Drawing.Color.White;
+            this.PnlPreview.Location = new System.Drawing.Point(155, 81);
+            this.PnlPreview.Name = "PnlPreview";
+            this.PnlPreview.Size = new System.Drawing.Size(400, 250);
+            this.PnlPreview.TabIndex = 13;
+            this.PnlPreview.Visible = false;
+            // 
             // DlgPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +191,7 @@
             this.Controls.Add(this.BtnMesaPracticas2);
             this.Controls.Add(this.BtnMesaPracticas1);
             this.Controls.Add(this.PbxPreview);
+            this.Controls.Add(this.PnlPreview);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(600, 400);
@@ -206,6 +217,7 @@
         private System.Windows.Forms.PictureBox PbxPeces;
         private System.Windows.Forms.RichTextBox TbxPrueba;
         private System.Windows.Forms.PictureBox PbxPreview;
+        private System.Windows.Forms.Panel PnlPreview;
     }
 }
 

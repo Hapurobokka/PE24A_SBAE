@@ -133,6 +133,7 @@ namespace PE24A_SBAE
 
             BtnP2Lienzo.Location = new System.Drawing.Point(WindowCenter[0] - 9 - BtnP2Lienzo.Width / 2, 40);
             BtnP2Limpiar.Location = new System.Drawing.Point(WindowCenter[0] - 9 - BtnP2Limpiar.Width / 2, 70);
+            BtnP3MostrarCuadrado.Location = new System.Drawing.Point(WindowCenter[0] - 70 - BtnP2Limpiar.Width / 2, 40);
 
         }
 
@@ -175,14 +176,20 @@ namespace PE24A_SBAE
             NumRectangles = 0;
             LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
         }
+        
+        private void BtnP2Limpiar_Click(object sender, EventArgs e)
+        {
+
+        }
 
         // --------------------------------------------------------------------
         // Al moverse sobre el lienzo
         // --------------------------------------------------------------------
         private void PnlLienzo_MouseMove(object sender, MouseEventArgs e)
         {
-            LnlDerecha.Text = $"X = {e.X}, Y = {e.Y}";
-            DrawRectangle(e.X, e.Y);
+            //LnlDerecha.Text = $"X = {e.X}, Y = {e.Y}";
+            //DrawRectangle(e.X, e.Y);
+            GenerateSquares(e.X, e.Y, 20);
         }
 
         // --------------------------------------------------------------------
@@ -200,17 +207,49 @@ namespace PE24A_SBAE
             Graphics Graficos = PnlLienzo.CreateGraphics();
             Graficos.DrawRectangle(Pluma, x, y, Ancho, Alto);
             //Graficos.DrawEllipse(Pluma, x, y, Ancho, Alto);
-            //Graficos.DrawLine(Pluma, x, y, Ancho, Alto);
-            NumRectangles++;
+            NumRectangles = 0;
             LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
         }
 
-        private void BtnP2Limpiar_Click(object sender, EventArgs e)
+        // --------------------------------------------------------------------
+        // Dibuja un cuadrado en la coordenada x, y.
+        // --------------------------------------------------------------------
+        private void DrawSquare(int x, int y, int side)
         {
+            Random rnd = new Random();
+            Color Color = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
+            Pen Pluma = new Pen(Color, 1);
+
             Graphics Graficos = PnlLienzo.CreateGraphics();
-            Graficos.Clear(Color.White);
+            //Graficos.DrawRectangle(Pluma, x, y, Ancho, Alto);
+            //Pluma.Color = Color.Blue;
+            //Graficos.DrawLine(Pluma, x, y, x+side, y);
+            //Pluma.Color = Color.Red;
+            //Graficos.DrawLine(Pluma, x+side, y, x+side, y+side);
+            //Pluma.Color = Color.Yellow;
+            //Graficos.DrawLine(Pluma, x+side, y+side, x, y+side);
+            //Pluma.Color = Color.Green;
+            //Graficos.DrawLine(Pluma, x, y+side, x, y);
+            Graficos.DrawRectangle(Pluma, x, y, side, side);
+
             NumRectangles = 0;
             LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
+        }
+
+        private void GenerateSquares(int x, int y, int side)
+        {
+            int NumCuadrados = 0;
+            while (NumCuadrados < 300)
+            {
+                int factor1 = (NumCuadrados * 5) - 10;
+                DrawSquare(x - factor1/2, y - factor1/2, side + factor1);
+                NumCuadrados++;
+            }
+        }
+
+        private void BtnP3MostrarCuadrado_Click(object sender, EventArgs e)
+        {
+            GenerateSquares(PnlLienzo.Width / 2, PnlLienzo.Height / 2, 20);
         }
     }
 }

@@ -42,6 +42,7 @@
             this.BtnP2Lienzo = new System.Windows.Forms.Button();
             this.PnlLienzo = new System.Windows.Forms.Panel();
             this.BtnP2Limpiar = new System.Windows.Forms.Button();
+            this.BtnP3MostrarCuadrado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PbxDerecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxIzquierda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxInferior)).BeginInit();
@@ -186,6 +187,16 @@
             this.BtnP2Limpiar.UseVisualStyleBackColor = true;
             this.BtnP2Limpiar.Click += new System.EventHandler(this.BtnP2Limpiar_Click);
             // 
+            // BtnP3MostrarCuadrado
+            // 
+            this.BtnP3MostrarCuadrado.Location = new System.Drawing.Point(500, 56);
+            this.BtnP3MostrarCuadrado.Name = "BtnP3MostrarCuadrado";
+            this.BtnP3MostrarCuadrado.Size = new System.Drawing.Size(75, 53);
+            this.BtnP3MostrarCuadrado.TabIndex = 17;
+            this.BtnP3MostrarCuadrado.Text = "Mostrar Cuadrado";
+            this.BtnP3MostrarCuadrado.UseVisualStyleBackColor = true;
+            this.BtnP3MostrarCuadrado.Click += new System.EventHandler(this.BtnP3MostrarCuadrado_Click);
+            // 
             // DlgMesaPracticas2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +204,7 @@
             this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 676);
+            this.Controls.Add(this.BtnP3MostrarCuadrado);
             this.Controls.Add(this.BtnP2Limpiar);
             this.Controls.Add(this.PnlLienzo);
             this.Controls.Add(this.BtnP2Lienzo);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.Button BtnP2Lienzo;
         private System.Windows.Forms.Panel PnlLienzo;
         private System.Windows.Forms.Button BtnP2Limpiar;
+        private System.Windows.Forms.Button BtnP3MostrarCuadrado;
     }
 }
