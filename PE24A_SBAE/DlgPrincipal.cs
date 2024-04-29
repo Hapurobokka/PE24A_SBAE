@@ -1,16 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Security.AccessControl;
 using System.Timers;
 using System.Windows.Forms;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
 
 namespace PE24A_SBAE
 {
@@ -20,6 +11,9 @@ namespace PE24A_SBAE
     // ------------------------------------------------------------------------
     public partial class DlgPrincipal : Form
     {
+        // ------------------------------------------------------------------------
+        // Atributos
+        // ------------------------------------------------------------------------
         private System.Timers.Timer timer;
         private System.Timers.Timer drawer; 
         private DataGridView DgvPreview;
@@ -60,11 +54,6 @@ namespace PE24A_SBAE
             PbxPeces.Location = new Point((WindowCenter[0] - PbxPeces.Width / 2) - 8, (WindowCenter[1] - PbxPeces.Height / 2) - 22);
             TbxPrueba.Location = new Point((WindowCenter[0] - TbxPrueba.Width / 2) - 8, this.Height - BtnMesaPracticas1.Height - TbxPrueba.Height * 2);
             PnlPreview.Location = new Point((this.Width /  2 - PnlPreview.Width / 2) - 8, (this.Height / 2 - PnlPreview.Height / 2) - 70);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         // ------------------------------------------------------------------------
@@ -126,7 +115,6 @@ namespace PE24A_SBAE
             TbxPrueba.Text = " ";
         }
 
-
         // ------------------------------------------------------------------------
         // Cambia de manera asincrona el color de la ventana
         // ------------------------------------------------------------------------
@@ -146,7 +134,6 @@ namespace PE24A_SBAE
                 timer.Dispose();
             }
         }
-
 
         // ------------------------------------------------------------------------
         // Botón para activar Mesa de Prácticas 1
@@ -185,6 +172,7 @@ namespace PE24A_SBAE
             DlgMesaPracticas2 = new DlgMesaPracticas2();
             DlgMesaPracticas2.Show();
         }
+
         private void BtnMesaPracticas2_MouseHover(object sender, EventArgs e)
         {
             EstablishTimer();
@@ -214,6 +202,12 @@ namespace PE24A_SBAE
         // ------------------------------------------------------------------------
         // Botón para activar Mesa de Prácticas 3
         // ------------------------------------------------------------------------
+        private void BtnMesaPracticas3_Click(object sender, EventArgs e)
+        {
+            DlgMesaPracticas3 dlgMesaPracticas3 = new DlgMesaPracticas3();
+            dlgMesaPracticas3.Show();
+        }
+
         private void BtnMesaPracticas3_MouseHover(object sender, EventArgs e)
         {
             EstablishTimer();
@@ -225,7 +219,6 @@ namespace PE24A_SBAE
             ResetTimer();
             ResetWindow();  
         }
-
 
         // ------------------------------------------------------------------------
         // Botón para activar Mesa de Prácticas 4
@@ -286,12 +279,6 @@ namespace PE24A_SBAE
         // ------------------------------------------------------------------------
         //  ???     
         // ------------------------------------------------------------------------
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void MiniDlg1(string description)
         {
             Func<int, int> scale43 = x => x + (x / 3);
@@ -381,5 +368,6 @@ namespace PE24A_SBAE
                     break;
             }
         }
+
     }
 }

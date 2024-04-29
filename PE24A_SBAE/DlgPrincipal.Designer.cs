@@ -116,6 +116,7 @@
             this.BtnMesaPracticas3.TabIndex = 5;
             this.BtnMesaPracticas3.Text = "3";
             this.BtnMesaPracticas3.UseVisualStyleBackColor = true;
+            this.BtnMesaPracticas3.Click += new System.EventHandler(this.BtnMesaPracticas3_Click);
             this.BtnMesaPracticas3.MouseLeave += new System.EventHandler(this.BtnMesaPracticas3_MouseLeave);
             this.BtnMesaPracticas3.MouseHover += new System.EventHandler(this.BtnMesaPracticas3_MouseHover);
             // 
@@ -198,7 +199,6 @@
             this.Name = "DlgPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Programación Estructurada 24A";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.DlgPrincipal_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.PbxPeces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxPreview)).EndInit();
