@@ -78,7 +78,6 @@
             this.PnlSuperior.Name = "PnlSuperior";
             this.PnlSuperior.Size = new System.Drawing.Size(1262, 80);
             this.PnlSuperior.TabIndex = 0;
-            this.PnlSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlSuperior_Paint);
             // 
             // PbxLogotipo
             // 
@@ -184,7 +183,6 @@
             this.TbxCaptura2.Name = "TbxCaptura2";
             this.TbxCaptura2.Size = new System.Drawing.Size(112, 20);
             this.TbxCaptura2.TabIndex = 1;
-            this.TbxCaptura2.TextChanged += new System.EventHandler(this.TbxCaptura2_TextChanged);
             // 
             // TbxCaptura1
             // 
@@ -192,7 +190,6 @@
             this.TbxCaptura1.Name = "TbxCaptura1";
             this.TbxCaptura1.Size = new System.Drawing.Size(112, 20);
             this.TbxCaptura1.TabIndex = 0;
-            this.TbxCaptura1.TextChanged += new System.EventHandler(this.TbxCaptura1_TextChanged);
             // 
             // PnlDerecho
             // 
@@ -242,7 +239,6 @@
             this.LblSalida5.Size = new System.Drawing.Size(45, 13);
             this.LblSalida5.TabIndex = 10;
             this.LblSalida5.Text = "Salida 5";
-            this.LblSalida5.Click += new System.EventHandler(this.TbxSalida5_Click);
             // 
             // TbxSalida5
             // 
@@ -267,7 +263,6 @@
             this.LblSalida4.Size = new System.Drawing.Size(45, 13);
             this.LblSalida4.TabIndex = 7;
             this.LblSalida4.Text = "Salida 4";
-            this.LblSalida4.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // TbxSalida3
             // 
@@ -319,7 +314,6 @@
             this.LblSalida1.Size = new System.Drawing.Size(45, 13);
             this.LblSalida1.TabIndex = 1;
             this.LblSalida1.Text = "Salida 1";
-            this.LblSalida1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CbOpciones
             // 
@@ -354,7 +348,6 @@
             this.DgvTabla1.RowHeadersWidth = 47;
             this.DgvTabla1.Size = new System.Drawing.Size(962, 596);
             this.DgvTabla1.TabIndex = 0;
-            this.DgvTabla1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTabla1_CellContentClick);
             // 
             // ColNombre
             // 

@@ -34,33 +34,13 @@ namespace PE24A_SBAE
             BtnP2Diagonal_Click(null, null);
         }
 
-        private void PnlSuperior_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void TbxCaptura1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TbxCaptura2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         // --------------------------------------------------------------------
         // Botón de pruebas de la Mesa de Trabajo 1
-        //
         // --------------------------------------------------------------------
         private void BtnPruebas_Click(object sender, EventArgs e)
         {
-            int Sumando1;
-            int Sumando2;
-            bool IsNumber1;
-            bool IsNumber2;
-
-            IsNumber1 = int.TryParse(TbxCaptura1.Text, out Sumando1);
-            IsNumber2 = int.TryParse(TbxCaptura2.Text, out Sumando2);
+            bool IsNumber1 = int.TryParse(TbxCaptura1.Text, out int Sumando1);
+            bool IsNumber2 = int.TryParse(TbxCaptura2.Text, out int Sumando2);
 
             if (!IsNumber1)
             {
@@ -78,14 +58,8 @@ namespace PE24A_SBAE
             MessageBox.Show($"La suma es {Sumando1 + Sumando2}");
         }
 
-        private void DgvTabla1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         // --------------------------------------------------------------------
         // Muestra la tabla de la práctica 1
-        //
         // --------------------------------------------------------------------
         private void BtnP1Muestra_Click(object sender, EventArgs e)
         {
@@ -94,7 +68,6 @@ namespace PE24A_SBAE
 
         // --------------------------------------------------------------------
         // Llena la tabla de la práctica 1
-        //
         // --------------------------------------------------------------------
         private void BtnP1Llena_Click(object sender, EventArgs e)
         {
@@ -118,17 +91,14 @@ namespace PE24A_SBAE
 
         // --------------------------------------------------------------------
         // Activa la práctica 2
-        //
         // --------------------------------------------------------------------
         private void BtnP2Activar_Click(object sender, EventArgs e)
         {
-            int NumCols;
-            bool IsNumber;
             Random rnd = new Random();
 
             // Validaciones iniciales
 
-            IsNumber = int.TryParse(TbxCaptura1.Text, out NumCols);
+            bool IsNumber = int.TryParse(TbxCaptura1.Text, out int NumCols);
 
             if (!IsNumber)
             {
@@ -167,16 +137,10 @@ namespace PE24A_SBAE
             RefillMatrix();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         // ------------------------------------------------------------------------------------
         // Calcula la practica 2 
         //  - suma de todos los numeros aleatorios de la matriz
         //  - suma de los numeros pares
-        //
         // ------------------------------------------------------------------------------------
         private void BtnP2Calcular_Click(object sender, EventArgs e)
         {
@@ -240,7 +204,6 @@ namespace PE24A_SBAE
         //------------------------------------------------------------------------
         // Lo que dice el nombre de la función
         // Rellena una matriz con nuevos números aleatorios 
-        //
         //------------------------------------------------------------------------
         private void RefillMatrix()
         {
@@ -280,16 +243,6 @@ namespace PE24A_SBAE
             TbxSalida4.BackColor = Color.Blue;
             TbxSalida5.Text = $"{InvDiagSum}";
             TbxSalida5.BackColor = Color.Magenta;
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TbxSalida5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void DlgMesaPracticas1_Load(object sender, EventArgs e)

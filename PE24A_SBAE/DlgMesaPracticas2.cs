@@ -21,7 +21,6 @@ namespace PE24A_SBAE
         int NumRectangles = 0;
         // ------------------------------------------------------------------------ 
         // Constructor
-        //
         // ------------------------------------------------------------------------ 
         public DlgMesaPracticas2()
         {
@@ -29,7 +28,6 @@ namespace PE24A_SBAE
 
             // ------------------------------------------------------------------------ 
             // Inicialización de la hora y la fecha actual
-            //
             // ------------------------------------------------------------------------ 
             PnlLienzo.Visible = false;
             LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -37,7 +35,6 @@ namespace PE24A_SBAE
             
             // ------------------------------------------------------------------------ 
             // Acomodar los componentes de la ventana a sus lugares apropiados
-            //
             // ------------------------------------------------------------------------ 
             DlgMesaPracticas2_Resize(null, null);
 
@@ -47,7 +44,6 @@ namespace PE24A_SBAE
         {
             // ------------------------------------------------------------------------ 
             // Permitimos que nuestro objeto TmrCambioHora comience a trabajar
-            //
             // ------------------------------------------------------------------------ 
             TmrCambioHora.Enabled = true;
         }
@@ -139,32 +135,11 @@ namespace PE24A_SBAE
 
         // --------------------------------------------------------------------
         // Actualizar la fecha y la hora con cada tick (1000 ms) del contador
-        //
         // --------------------------------------------------------------------
         private void TmrCambioHora_tick(object sender, EventArgs e)
         {
             LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
             LblFechaActual.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
-        }
-
-        private void PnlFondoDePantalla_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void PbxIzquierda_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LnlIzquierda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         // --------------------------------------------------------------------
