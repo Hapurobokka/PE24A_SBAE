@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using System.Drawing;
+
 namespace PE24A_SBAE
 {
     //  ----------------------------------------------------------------------- 
@@ -91,12 +92,14 @@ namespace PE24A_SBAE
         {
             Pen Pencil = new Pen(Color.Red, 1);
             Graphics Graphics = PnlLienzo.CreateGraphics();
+            Brush brush = new SolidBrush(Color.Red);
 
             Graphics.DrawPolygon(Pencil, Points);
 
             for (int i = 0; i < Points.Length; i++)
             {
                 Graphics.DrawEllipse(new Pen(Color.Red, 5), Points[i].X - 5, Points[i].Y - 5, 10, 10);
+                Graphics.DrawString(DgvVectores.Rows[i].Cells[0].Value.ToString(), Font, brush, Points[i].X + 9, Points[i].Y - 5);
             }
         }
         
@@ -118,18 +121,24 @@ namespace PE24A_SBAE
             return Points;
         }
 
+        // Obtiene el perimetro de la figura
         private void GetPerimeter(PointF[] Points)
         {
             double Perimeter = 0;
 
+            // La fórmula usada es la que se utiliza para obtener la distancia
+            // entre dos puntos en un plano bidimensional. Al final se suman todas
+            // las distancias para formar el perimetro.
             for (int i = 0; i < Points.Length - 1; i++)
             {
                 double distance = Math.Sqrt(Math.Pow(Points[i + 1].X - Points[i].X, 2) + Math.Pow(Points[i + 1].Y - Points[i].Y, 2));
                 Perimeter += distance;
             }
+            // Este último calculo tiene en cuenta que el último punto tiene que calcularse junto con el primero.
             Perimeter += Math.Sqrt(Math.Pow(Points[Points.Length - 1].X - Points[0].X, 2) + Math.Pow(Points[Points.Length - 1].Y - Points[0].Y, 2));
+            Perimeter /= 6;
 
-            TbxPerimetro.Text = (Perimeter / 6).ToString();
+            TbxPerimetro.Text = Perimeter.ToString();
         }
 
         // Obtiene el área de la figura
@@ -137,14 +146,17 @@ namespace PE24A_SBAE
         {
             double Area = 0;
 
+            // La fórmula usada es la fórmula del producto cruzado.
             for (int i = 0; i < Points.Length - 1; i++)
             {
                 double product = (Points[i].X * Points[i + 1].Y) - (Points[i + 1].X * Points[i].Y);
                 Area += product;
             }
+            // Este último calculo tiene en cuenta que el último punto tiene que calcularse junto con el primero.
             Area += (Points[Points.Length - 1].X * Points[0].Y) - (Points[0].X * Points[Points.Length - 1].Y);
+            Area = Math.Abs(Area / 2) / 36;
 
-            TbxArea.Text = Math.Abs((Area / 2) / 36).ToString();
+            TbxArea.Text = Area.ToString();
         }
 
         // Dibuja una poligonal en el punto origen determinado (lógicamente)
