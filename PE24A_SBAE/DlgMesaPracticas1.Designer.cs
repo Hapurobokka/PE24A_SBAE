@@ -32,6 +32,7 @@
             this.PnlSuperior = new System.Windows.Forms.Panel();
             this.PbxLogotipo = new System.Windows.Forms.PictureBox();
             this.PnlIzquierdo = new System.Windows.Forms.Panel();
+            this.BtnP2Temporizador = new System.Windows.Forms.Button();
             this.BtnP2Diagonal = new System.Windows.Forms.Button();
             this.BtnP2Calcular = new System.Windows.Forms.Button();
             this.BtnP2Activar = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColApellidoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColApellidoM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnP2Temporizador = new System.Windows.Forms.Button();
             this.PnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogotipo)).BeginInit();
             this.PnlIzquierdo.SuspendLayout();
@@ -107,6 +107,16 @@
             this.PnlIzquierdo.Name = "PnlIzquierdo";
             this.PnlIzquierdo.Size = new System.Drawing.Size(150, 596);
             this.PnlIzquierdo.TabIndex = 1;
+            // 
+            // BtnP2Temporizador
+            // 
+            this.BtnP2Temporizador.Location = new System.Drawing.Point(21, 294);
+            this.BtnP2Temporizador.Name = "BtnP2Temporizador";
+            this.BtnP2Temporizador.Size = new System.Drawing.Size(112, 25);
+            this.BtnP2Temporizador.TabIndex = 8;
+            this.BtnP2Temporizador.Text = "P2 Temporizador";
+            this.BtnP2Temporizador.UseVisualStyleBackColor = true;
+            this.BtnP2Temporizador.Click += new System.EventHandler(this.BtnP2Temporizador_Click);
             // 
             // BtnP2Diagonal
             // 
@@ -366,16 +376,6 @@
             this.ColApellidoM.MinimumWidth = 6;
             this.ColApellidoM.Name = "ColApellidoM";
             this.ColApellidoM.Width = 115;
-            // 
-            // BtnP2Temporizador
-            // 
-            this.BtnP2Temporizador.Location = new System.Drawing.Point(21, 294);
-            this.BtnP2Temporizador.Name = "BtnP2Temporizador";
-            this.BtnP2Temporizador.Size = new System.Drawing.Size(112, 25);
-            this.BtnP2Temporizador.TabIndex = 8;
-            this.BtnP2Temporizador.Text = "P2 Temporizador";
-            this.BtnP2Temporizador.UseVisualStyleBackColor = true;
-            this.BtnP2Temporizador.Click += new System.EventHandler(this.BtnP2Temporizador_Click);
             // 
             // DlgMesaPracticas1
             // 

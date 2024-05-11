@@ -118,23 +118,42 @@ namespace PE24A_SBAE
                 row++;
             }
 
-            // TODO
-
-            // Librea recursos
+            //TbxPerimetro.Text = ((Range)worksheet.Cells[20, 9]).Value.ToString();
+            //TbxArea.Text = ((Range)worksheet.Cells[21, 9]).Value.ToString();
 
             app.Quit();
         }
 
+        // Obtiene la distancia entre dos puntos
+        private float GetDistanceBetweenPoints(PointF Point1, PointF Point2)
+        {
+            return (float)Math.Sqrt(Math.Pow(Point2.X - Point1.X, 2) + Math.Pow(Point2.Y - Point1.Y, 2));
+        }
+
+        // Obtiene un producto cruzado
+        private float GetCrossedProduct(PointF Point1, PointF Point2)
+        {
+            return (float)((Point1.X - Point2.Y) * (Point2.X - Point1.Y));
+        }
+
+        // Dibuja el perimetro de la figura
         private void DrawPerimeter(PointF[] Points)
         {
             Pen Pencil;
+            Pen PencilPoint;
             Graphics Graphics;
             Color Color;
 
             Color = Color.Red;
             Pencil = new Pen(Color, 1);
+            PencilPoint = new Pen(Color, 5);
             Graphics = PnlLienzo.CreateGraphics();
             Graphics.DrawPolygon(Pencil, Points);
+
+            for (int i = 0; i < Points.Length; i++)
+            {
+                Graphics.DrawEllipse(PencilPoint, Points[i].X - 5, Points[i].Y - 5, 10, 10);
+            }
         }
         
         // Transforma los vectores dado en un array de puntos flotanes
@@ -160,9 +179,24 @@ namespace PE24A_SBAE
                 x = float.Parse(xS);
                 y = float.Parse(yS);
 
-                Point = new PointF(x + X, -y + Y);
+                Point = new PointF((x * 6f) + X, -(y * 6f) + Y);
                 Points[i] = Point;
             }
+
+            float Perimeter = 0;
+            float Product = 0;
+
+            for (int i = 0; i < NumRows - 1; i++)
+            {
+                Perimeter += GetDistanceBetweenPoints(Points[i], Points[i + 1]);
+                Product += GetCrossedProduct(Points[i], Points[i + 1]);
+            }
+
+            Perimeter += GetDistanceBetweenPoints(Points[NumRows - 1], Points[0]);
+            Product += GetCrossedProduct(Points[NumRows - 1], Points[0]);
+
+            TbxPerimetro.Text = Perimeter.ToString();
+            TbxArea.Text = (Product / 2).ToString();
 
             return Points;
         }
@@ -173,13 +207,14 @@ namespace PE24A_SBAE
             PointF[] Points = GetCoordinates(X, Y);
 
             DrawPerimeter(Points);
+
         }
 
         // Dibuja el plano del terreno sobre el lienzo.
         private void BtnDibujar_Click(object sender, EventArgs e)
         {
-            int X = 100;
-            int Y = 100;
+            int X = 40;
+            int Y = 500;
             DrawPolygonal(X, Y);
         }
     }

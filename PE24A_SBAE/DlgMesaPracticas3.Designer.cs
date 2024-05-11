@@ -38,6 +38,10 @@
             this.ColY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnImportar = new System.Windows.Forms.Button();
             this.BtnDibujar = new System.Windows.Forms.Button();
+            this.TbxPerimetro = new System.Windows.Forms.TextBox();
+            this.TbxArea = new System.Windows.Forms.TextBox();
+            this.LblPerimetro = new System.Windows.Forms.Label();
+            this.LblArea = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVectores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +128,40 @@
             this.BtnDibujar.UseVisualStyleBackColor = true;
             this.BtnDibujar.Click += new System.EventHandler(this.BtnDibujar_Click);
             // 
+            // TbxPerimetro
+            // 
+            this.TbxPerimetro.Location = new System.Drawing.Point(13, 57);
+            this.TbxPerimetro.Name = "TbxPerimetro";
+            this.TbxPerimetro.Size = new System.Drawing.Size(100, 20);
+            this.TbxPerimetro.TabIndex = 18;
+            // 
+            // TbxArea
+            // 
+            this.TbxArea.Location = new System.Drawing.Point(119, 57);
+            this.TbxArea.Name = "TbxArea";
+            this.TbxArea.Size = new System.Drawing.Size(100, 20);
+            this.TbxArea.TabIndex = 19;
+            // 
+            // LblPerimetro
+            // 
+            this.LblPerimetro.AutoSize = true;
+            this.LblPerimetro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.LblPerimetro.Location = new System.Drawing.Point(12, 37);
+            this.LblPerimetro.Name = "LblPerimetro";
+            this.LblPerimetro.Size = new System.Drawing.Size(69, 17);
+            this.LblPerimetro.TabIndex = 20;
+            this.LblPerimetro.Text = "Perimetro";
+            // 
+            // LblArea
+            // 
+            this.LblArea.AutoSize = true;
+            this.LblArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.LblArea.Location = new System.Drawing.Point(119, 37);
+            this.LblArea.Name = "LblArea";
+            this.LblArea.Size = new System.Drawing.Size(38, 17);
+            this.LblArea.TabIndex = 21;
+            this.LblArea.Text = "Área";
+            // 
             // DlgMesaPracticas3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +169,10 @@
             this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 676);
+            this.Controls.Add(this.LblArea);
+            this.Controls.Add(this.LblPerimetro);
+            this.Controls.Add(this.TbxArea);
+            this.Controls.Add(this.TbxPerimetro);
             this.Controls.Add(this.BtnDibujar);
             this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.DgvVectores);
@@ -145,6 +187,7 @@
             this.Resize += new System.EventHandler(this.DlgMesaPracticas2_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.DgvVectores)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,5 +201,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColX;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColY;
         private System.Windows.Forms.Button BtnDibujar;
+        private System.Windows.Forms.TextBox TbxPerimetro;
+        private System.Windows.Forms.TextBox TbxArea;
+        private System.Windows.Forms.Label LblPerimetro;
+        private System.Windows.Forms.Label LblArea;
     }
 }
