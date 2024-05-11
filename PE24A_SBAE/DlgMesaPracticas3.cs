@@ -12,48 +12,14 @@ namespace PE24A_SBAE
     {
         // ------------------------------------------------------------------------ 
         // Constructor
-        //
         // ------------------------------------------------------------------------ 
         public DlgMesaPracticas3()
         {
             InitializeComponent();
-
-            // ------------------------------------------------------------------------ 
-            // Inicialización de la hora y la fecha actual
-            //
-            // ------------------------------------------------------------------------ 
             PnlLienzo.Visible = false;
-            
-            // ------------------------------------------------------------------------ 
-            // Acomodar los componentes de la ventana a sus lugares apropiados
-            //
-            // ------------------------------------------------------------------------ 
-            DlgMesaPracticas2_Resize(null, null);
-
         }
 
-        private void DlgMesaPracticas2_Load(object sender, EventArgs e)
-        {
-        }
-
-        // --------------------------------------------------------------------
-        // Cambiar la posición de los componentes al cambiar el tamaño de la
-        // ventana
-        // SBAE
-        // --------------------------------------------------------------------
-        private void DlgMesaPracticas2_Resize(object sender, EventArgs e)
-        {
-        }
-
-        // --------------------------------------------------------------------
-        // Actualizar la fecha y la hora con cada tick (1000 ms) del contador
-        //
-        // --------------------------------------------------------------------
-
-        // --------------------------------------------------------------------
-        // Activa la practica 2
-        // --------------------------------------------------------------------
-        private void BtnP2Lienzo_Click(object sender, EventArgs e)
+        private void BtnP3Lienzo_Click(object sender, EventArgs e)
         {
             PnlLienzo.Visible = !PnlLienzo.Visible;
         }
@@ -62,48 +28,46 @@ namespace PE24A_SBAE
         private void BtnImportar_Click(object sender, EventArgs e)
         {
             // Construye aplicación
-            _Application app;
-            _Workbook workbook;
-            _Worksheet worksheet;
-            int row;
-            string ProjectName;
-            string PropetaryName;
-            string PropertyUbication;
+
+            // Crea la app
+            _Application app = new Microsoft.Office.Interop.Excel.Application();
+
+            // Importa el archivo
+            _Workbook workbook = app.Workbooks.Open("C:\\Users\\cosmo\\OneDrive\\Escritorio\\MP3-datos.xlsx",
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // Toma la hoja en especifico del archivo de Excel
+            _Worksheet worksheet = workbook.Sheets["Vectores"];
+            worksheet = workbook.ActiveSheet;
+
+            // Obtenemos detalles de la hoja de calculo
+            string ProjectName = ((Range)worksheet.Cells[1, 1]).Value;
+            string PropetaryName = ((Range)worksheet.Cells[2, 1]).Value;
+            string PropertyUbication = ((Range)worksheet.Cells[3, 1]).Value;
+
+            // La columna desde la que comienza la tabla con los vectores
+            int row = 5;
 
             // Limpia la tabla (si no es lógico)
             DgvVectores.Rows.Clear();
 
-            // Crea la app
-            app = new Microsoft.Office.Interop.Excel.Application();
-
-            // Importa el archivo
-            workbook = app.Workbooks.Open("C:\\Users\\cosmo\\OneDrive\\Escritorio\\MP3-datos.xlsx",
-                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-
-            worksheet = workbook.Sheets["Vectores"];
-            worksheet = workbook.ActiveSheet;
-
             // Algoritmo de importación de datos
-
-            ProjectName = ((Range)worksheet.Cells[1, 1]).Value;
-            PropetaryName = ((Range)worksheet.Cells[2, 1]).Value;
-            PropertyUbication = ((Range)worksheet.Cells[3, 1]).Value;
-
-            row = 5;
-
             while (((Range)worksheet.Cells[row, 1]).Value != null)
             {
+                // Obtiene estos datos de la hoja de calculo
                 string Vector = ((Range)worksheet.Cells[row, 1]).Value;
                 double X = ((Range)worksheet.Cells[row, 2]).Value;
                 double Y = ((Range)worksheet.Cells[row, 3]).Value;
                 string CellColor = ((Range)worksheet.Cells[row, 4]).Value;
 
+                // Añade dichos datos al DataGridView
                 DgvVectores.Rows.Add();
                 DgvVectores.Rows[row - 5].Cells[0].Value = Vector;
                 DgvVectores.Rows[row - 5].Cells[1].Value = X;
                 DgvVectores.Rows[row - 5].Cells[2].Value = Y;
 
+                // Dependidendo del color especificado en la hoja de calculo, se colorea esa casilla en el DGV
                 switch (CellColor) {
                     case "R":
                         DgvVectores.Rows[row - 5].Cells[0].Style.BackColor = Color.Red;
@@ -118,87 +82,69 @@ namespace PE24A_SBAE
                 row++;
             }
 
-            //TbxPerimetro.Text = ((Range)worksheet.Cells[20, 9]).Value.ToString();
-            //TbxArea.Text = ((Range)worksheet.Cells[21, 9]).Value.ToString();
-
+            // Cierra la aplicación
             app.Quit();
-        }
-
-        // Obtiene la distancia entre dos puntos
-        private float GetDistanceBetweenPoints(PointF Point1, PointF Point2)
-        {
-            return (float)Math.Sqrt(Math.Pow(Point2.X - Point1.X, 2) + Math.Pow(Point2.Y - Point1.Y, 2));
-        }
-
-        // Obtiene un producto cruzado
-        private float GetCrossedProduct(PointF Point1, PointF Point2)
-        {
-            return (float)((Point1.X - Point2.Y) * (Point2.X - Point1.Y));
         }
 
         // Dibuja el perimetro de la figura
         private void DrawPerimeter(PointF[] Points)
         {
-            Pen Pencil;
-            Pen PencilPoint;
-            Graphics Graphics;
-            Color Color;
+            Pen Pencil = new Pen(Color.Red, 1);
+            Graphics Graphics = PnlLienzo.CreateGraphics();
 
-            Color = Color.Red;
-            Pencil = new Pen(Color, 1);
-            PencilPoint = new Pen(Color, 5);
-            Graphics = PnlLienzo.CreateGraphics();
             Graphics.DrawPolygon(Pencil, Points);
 
             for (int i = 0; i < Points.Length; i++)
             {
-                Graphics.DrawEllipse(PencilPoint, Points[i].X - 5, Points[i].Y - 5, 10, 10);
+                Graphics.DrawEllipse(new Pen(Color.Red, 5), Points[i].X - 5, Points[i].Y - 5, 10, 10);
             }
         }
         
         // Transforma los vectores dado en un array de puntos flotanes
         private PointF[] GetCoordinates(int X, int Y)
         {
-            PointF[] Points;
-            int NumRows;
-
-            NumRows = DgvVectores.RowCount - 1;
-            Points = new PointF[NumRows];
+            int NumRows = DgvVectores.RowCount - 1;
+            PointF[] Points = new PointF[NumRows];
 
             for (int i = 0; i < NumRows; i++)
             {
-                PointF Point;
-                string xS;
-                string yS;
-                float x; 
-                float y;
+                float x = float.Parse(DgvVectores.Rows[i].Cells[1].Value.ToString());
+                float y = float.Parse(DgvVectores.Rows[i].Cells[2].Value.ToString());
 
-                xS = DgvVectores.Rows[i].Cells[1].Value.ToString();
-                yS = DgvVectores.Rows[i].Cells[2].Value.ToString();
-
-                x = float.Parse(xS);
-                y = float.Parse(yS);
-
-                Point = new PointF((x * 6f) + X, -(y * 6f) + Y);
+                PointF Point = new PointF((x * 6f) + X, -(y * 6f) + Y);
                 Points[i] = Point;
             }
 
-            float Perimeter = 0;
-            float Product = 0;
-
-            for (int i = 0; i < NumRows - 1; i++)
-            {
-                Perimeter += GetDistanceBetweenPoints(Points[i], Points[i + 1]);
-                Product += GetCrossedProduct(Points[i], Points[i + 1]);
-            }
-
-            Perimeter += GetDistanceBetweenPoints(Points[NumRows - 1], Points[0]);
-            Product += GetCrossedProduct(Points[NumRows - 1], Points[0]);
-
-            TbxPerimetro.Text = Perimeter.ToString();
-            TbxArea.Text = (Product / 2).ToString();
-
             return Points;
+        }
+
+        private void GetPerimeter(PointF[] Points)
+        {
+            double Perimeter = 0;
+
+            for (int i = 0; i < Points.Length - 1; i++)
+            {
+                double distance = Math.Sqrt(Math.Pow(Points[i + 1].X - Points[i].X, 2) + Math.Pow(Points[i + 1].Y - Points[i].Y, 2));
+                Perimeter += distance;
+            }
+            Perimeter += Math.Sqrt(Math.Pow(Points[Points.Length - 1].X - Points[0].X, 2) + Math.Pow(Points[Points.Length - 1].Y - Points[0].Y, 2));
+
+            TbxPerimetro.Text = (Perimeter / 6).ToString();
+        }
+
+        // Obtiene el área de la figura
+        private void GetArea(PointF[] Points)
+        {
+            double Area = 0;
+
+            for (int i = 0; i < Points.Length - 1; i++)
+            {
+                double product = (Points[i].X * Points[i + 1].Y) - (Points[i + 1].X * Points[i].Y);
+                Area += product;
+            }
+            Area += (Points[Points.Length - 1].X * Points[0].Y) - (Points[0].X * Points[Points.Length - 1].Y);
+
+            TbxArea.Text = Math.Abs((Area / 2) / 36).ToString();
         }
 
         // Dibuja una poligonal en el punto origen determinado (lógicamente)
@@ -207,7 +153,8 @@ namespace PE24A_SBAE
             PointF[] Points = GetCoordinates(X, Y);
 
             DrawPerimeter(Points);
-
+            GetPerimeter(Points);
+            GetArea(Points);
         }
 
         // Dibuja el plano del terreno sobre el lienzo.

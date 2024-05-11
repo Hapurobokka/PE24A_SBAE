@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.TmrCambioHora = new System.Windows.Forms.Timer(this.components);
-            this.BtnP2Lienzo = new System.Windows.Forms.Button();
+            this.BtnP3Lienzo = new System.Windows.Forms.Button();
             this.PnlLienzo = new System.Windows.Forms.Panel();
             this.DgvVectores = new System.Windows.Forms.DataGridView();
             this.ColVector = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,15 +49,15 @@
             // 
             this.TmrCambioHora.Interval = 1000;
             // 
-            // BtnP2Lienzo
+            // BtnP3Lienzo
             // 
-            this.BtnP2Lienzo.Location = new System.Drawing.Point(581, 57);
-            this.BtnP2Lienzo.Name = "BtnP2Lienzo";
-            this.BtnP2Lienzo.Size = new System.Drawing.Size(133, 23);
-            this.BtnP2Lienzo.TabIndex = 14;
-            this.BtnP2Lienzo.Text = "P2 Mostrar Lienzo";
-            this.BtnP2Lienzo.UseVisualStyleBackColor = true;
-            this.BtnP2Lienzo.Click += new System.EventHandler(this.BtnP2Lienzo_Click);
+            this.BtnP3Lienzo.Location = new System.Drawing.Point(581, 57);
+            this.BtnP3Lienzo.Name = "BtnP3Lienzo";
+            this.BtnP3Lienzo.Size = new System.Drawing.Size(133, 23);
+            this.BtnP3Lienzo.TabIndex = 14;
+            this.BtnP3Lienzo.Text = "P3 Mostrar Lienzo";
+            this.BtnP3Lienzo.UseVisualStyleBackColor = true;
+            this.BtnP3Lienzo.Click += new System.EventHandler(this.BtnP3Lienzo_Click);
             // 
             // PnlLienzo
             // 
@@ -177,14 +177,12 @@
             this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.DgvVectores);
             this.Controls.Add(this.PnlLienzo);
-            this.Controls.Add(this.BtnP2Lienzo);
+            this.Controls.Add(this.BtnP3Lienzo);
             this.DoubleBuffered = true;
             this.Name = "DlgMesaPracticas3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PE Mesa de Prácticas 2";
             this.TransparencyKey = System.Drawing.Color.AntiqueWhite;
-            this.Load += new System.EventHandler(this.DlgMesaPracticas2_Load);
-            this.Resize += new System.EventHandler(this.DlgMesaPracticas2_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.DgvVectores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,7 +191,7 @@
 
         #endregion
         private System.Windows.Forms.Timer TmrCambioHora;
-        private System.Windows.Forms.Button BtnP2Lienzo;
+        private System.Windows.Forms.Button BtnP3Lienzo;
         private System.Windows.Forms.Panel PnlLienzo;
         private System.Windows.Forms.DataGridView DgvVectores;
         private System.Windows.Forms.Button BtnImportar;
