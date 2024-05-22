@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PE24A_SBAE
@@ -128,7 +122,7 @@ namespace PE24A_SBAE
 
             for (int i = 0; i < NumCols; i++)
             {
-                DgvTabla2.Columns.Add($"C{i}", $"C{i+1}");
+                DgvTabla2.Columns.Add($"C{i}", $"C{i + 1}");
                 DgvTabla2.Rows.Add();
             }
 
@@ -153,8 +147,8 @@ namespace PE24A_SBAE
             RefillMatrix();
 
             // Este bucle procesa la información de la tabla ya sabes
-            for (int i = 0; i < NumRows; i++) 
-            { 
+            for (int i = 0; i < NumRows; i++)
+            {
                 for (int j = 0; j < NumRows; j++)
                 {
                     // Acumula el valor actual de la celda
@@ -200,7 +194,7 @@ namespace PE24A_SBAE
             TbxSalida3.BackColor = Color.LightGreen;
             TbxSalida6.BackColor = Color.Red;
         }
-        
+
         //------------------------------------------------------------------------
         // Lo que dice el nombre de la función
         // Rellena una matriz con nuevos números aleatorios 
@@ -263,5 +257,5 @@ namespace PE24A_SBAE
                 BtnP2Temporizador.BackColor = Color.Red;
             }
         }
-    } 
+    }
 }

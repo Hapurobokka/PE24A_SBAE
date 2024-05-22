@@ -73,7 +73,6 @@
             this.PbxIzquierda.Size = new System.Drawing.Size(50, 50);
             this.PbxIzquierda.TabIndex = 5;
             this.PbxIzquierda.TabStop = false;
-            this.PbxIzquierda.Click += new System.EventHandler(this.PbxIzquierda_Click);
             // 
             // PbxInferior
             // 
@@ -98,7 +97,6 @@
             this.LnlIzquierda.TabIndex = 13;
             this.LnlIzquierda.TabStop = true;
             this.LnlIzquierda.Text = "Soy publicidad de Microsoft. Por favor odiame.";
-            this.LnlIzquierda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnlIzquierda_LinkClicked);
             // 
             // LnlDerecha
             // 
@@ -126,7 +124,6 @@
             this.LnlInferior.TabStop = true;
             this.LnlInferior.Text = "Soy publicidad de Microsoft. Por favor odiame.";
             this.LnlInferior.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LnlInferior.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // LblFechaActual
             // 

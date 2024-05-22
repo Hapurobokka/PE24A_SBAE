@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PE24A_SBAE
@@ -32,7 +24,7 @@ namespace PE24A_SBAE
             PnlLienzo.Visible = false;
             LblHoraActual.Text = DateTime.Now.ToString("HH:mm:ss");
             LblFechaActual.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
-            
+
             // ------------------------------------------------------------------------ 
             // Acomodar los componentes de la ventana a sus lugares apropiados
             // ------------------------------------------------------------------------ 
@@ -151,7 +143,7 @@ namespace PE24A_SBAE
             NumRectangles = 0;
             LnlIzquierda.Text = $"Rectangulos = {NumRectangles}";
         }
-        
+
         private void BtnP2Limpiar_Click(object sender, EventArgs e)
         {
 
@@ -217,7 +209,7 @@ namespace PE24A_SBAE
             while (NumCuadrados < 300)
             {
                 int factor1 = (NumCuadrados * 5) - 10;
-                DrawSquare(x - factor1/2, y - factor1/2, side + factor1);
+                DrawSquare(x - factor1 / 2, y - factor1 / 2, side + factor1);
                 NumCuadrados++;
             }
         }
